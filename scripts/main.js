@@ -4,17 +4,18 @@ let myImage = document.querySelector('img');
 
 myImage.addEventListener('click', function() {
     let mySrc = myImage.getAttribute('src');
-    if (mySrc === 'images/firefox-icon.png') {
+    if (mySrc === 'images/logo_active.png') {
       myImage.setAttribute('src', 'images/firefox2.png');
     } else {
-      myImage.setAttribute('src', 'images/firefox-icon.png');
+      myImage.setAttribute('src', 'images/logo_active.png');
     }
 });
 
+ 
 let myButton = document.querySelector('button');
 let myHeading = document.querySelector('h1');
-myHeading.textContent = 'Bonjour, monde !';
-
+myHeading.textContent = 'Bienvenue sur notre site !';
+let myButtonResa = document.querySelector('#Resa');
 
 function setUserName() {
   let myName = prompt('Veuillez saisir votre nom.');
@@ -22,7 +23,12 @@ function setUserName() {
     setUserName();
   } else {
     localStorage.setItem('nom', myName);
-    myHeading.innerHTML = 'Mozilla is cool, ' + myName;
+    if (myName ==='Emmanuel') {	
+      myHeading.innerHTML = 'Tu es mon Amour, ' + myName;
+    } else { 
+      myHeading.innerHTML = 'Tu es qui toi ? ' + myName; 
+      }
+ 
   }
 }
 
@@ -30,9 +36,14 @@ if (!localStorage.getItem('nom')) {
   setUserName();
 } else {
   let storedName = localStorage.getItem('nom');
-  myHeading.innerHTML = 'Mozilla est cool, ' + storedName;
+  myHeading.innerHTML = 'Bienvenue, ' + storedName;
 }
 
 myButton.onclick = function() {
   setUserName();
 }
+
+myButtonResa.onclick = function() {
+  alert("En cours de developpement");
+}
+
